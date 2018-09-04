@@ -1,10 +1,11 @@
 <?php
 /*
  * @Author: Ujang Wahyu 
- * @Date: 2018-09-03 15:37:52 
+ * @Date: 2018-09-04 11:55:05 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-04 12:03:53
+ * @Last Modified time: 2018-09-04 12:30:15
  */
+
 namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
@@ -13,9 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
-{
-    use Authenticatable, Authorizable;
+class Tour extends Model{
     
     public $timestamps = false;
     /**
@@ -23,14 +22,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var string
      */
-    protected $table = 'user';
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-    protected $primaryKey = 'id';
+    protected $table = 'tour';
 
     /**
      * The attributes that are mass assignable.
@@ -38,21 +30,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'id','email','name','photo_url','role','token'
+        'name', 'cover_url','description'
     ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
-
-    /**
-     * Get the courses for the user.
-     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     public function region()
     {
@@ -61,16 +45,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function photo360()
     {
-        return $this->hasOne('App\Models\Photo360');
+        return $this->hasMany('App\Models\Photo360');
     }
 
     public function video360()
     {
-        return $this->hasOne('App\Models\Video360');
+        return $this->hasMany('App\Models\Video360');
     }
 
     public function scene()
     {
-        return $this->hasOne('App\Models\Scene');
+        return $this->hasMany('App\Models\Scene');
     }
+    
 }

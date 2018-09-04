@@ -94,6 +94,7 @@ $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 $app->register(Barryvdh\Cors\ServiceProvider::class);
+$app->register(JD\Cloudder\CloudderServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes

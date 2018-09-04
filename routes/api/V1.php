@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-03 15:44:11
+ * @Last Modified time: 2018-09-04 14:53:05
  */
 
 /*
@@ -42,12 +42,12 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         return response()->json($users);
     });
 
-    $router->group(['prefix' => 'technology'], function ($app) {
-        $app->get('/', 'TechnologyController@index');
-        $app->get('/{id}', 'TechnologyController@show');
-        $app->post('/', 'TechnologyController@store');
-        $app->post('/{id}', 'TechnologyController@update');
-        $app->delete('/{id}', 'TechnologyController@destroy');
+    $router->group(['prefix' => 'tour'], function ($app) {
+        $app->get('/', 'TourController@index');
+        $app->get('/{id}', 'TourController@show');
+        $app->post('/', 'TourController@store');
+        $app->post('/{id}', 'TourController@update');
+        $app->delete('/{id}', 'TourController@destroy');
     });
 });
 
