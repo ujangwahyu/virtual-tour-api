@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-04 14:15:07 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-04 14:51:11
+ * @Last Modified time: 2018-09-04 15:14:09
  */
 
 namespace App\Http\Controllers\V1;
@@ -55,12 +55,12 @@ class TourController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'name'      => 'required',
             'cover_url'      => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'      => 'required|string',
-            'region_id'      => 'required',
-            'user_id'      => 'required'
+            'region_id'      => 'required'
         ]);
 
         $coverUrl = $request->file('cover_url'); 
@@ -76,7 +76,7 @@ class TourController extends Controller {
         $dt->cover_url = $cUrl->getResult()['url'];
         $dt->description = $request->description;
         $dt->region_id = $request->region_id;
-        $dt->user_id = $request->user_id;
+        $dt->user_id = $user->id;
         $dt->save();
 
         $jsonData = [
@@ -121,8 +121,7 @@ class TourController extends Controller {
             $dt->cover_url = $cUrl;
         }
         $dt->description = $request->description;
-        $dt->region_id = $request->region_id;
-        $dt->user_id = $request->user_id;
+        $dt->region_id = $request->region_id; 
         $dt->save();
 
         $jsonData = [
