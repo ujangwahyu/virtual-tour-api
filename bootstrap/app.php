@@ -116,8 +116,7 @@ $app->router->group([
     'prefix' => 'api/v1',
     'middleware' => 'cors'
 ], function ($router) {
-    require __DIR__.'/../routes/api/v1.php';
-    require __DIR__.'/app/.heroku/php/lib/php';
+    require __DIR__.'/../routes/api/V1.php'; 
 });
 
 return $app;
