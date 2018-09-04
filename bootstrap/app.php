@@ -117,6 +117,7 @@ $app->router->group([
     'middleware' => 'cors'
 ], function ($router) {
     require __DIR__.'/../routes/api/v1.php';
+    require __DIR__.'/app/.heroku/php/lib/php';
 });
 
 return $app;
