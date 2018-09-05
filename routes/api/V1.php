@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 15:25:58
+ * @Last Modified time: 2018-09-05 15:32:04
  */
 
 /*
@@ -84,6 +84,21 @@ $router->group(['prefix' => 'region'], function ($app) {
 $router->group(['prefix' => 'tour'], function ($app) {
     $app->get('/', 'TourController@index');
     $app->get('/{id}', 'TourController@show'); 
+});
+
+$router->group(['prefix' => 'scene'], function ($app) {
+    $app->get('/', 'SceneController@index');
+    $app->get('/{id}', 'SceneController@show'); 
+});
+
+$router->group(['prefix' => 'hotspot'], function ($app) {
+    $app->get('/', 'HotspotController@index');
+    $app->get('/{id}', 'HotspotController@show'); 
+});
+
+$router->group(['prefix' => 'photo360'], function ($app) {
+    $app->get('/', 'Photo360Controller@index');
+    $app->get('/{id}', 'Photo360Controller@show'); 
 });
 
 $router->group(['prefix' => 'user'], 
