@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 10:49:40 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 10:50:00
+ * @Last Modified time: 2018-09-05 11:19:49
  */
 
 namespace App\Http\Controllers\V1;
@@ -56,39 +56,30 @@ class HotspotController extends Controller {
      */
     public function store(Request $request){
         $user = $request->auth;
-        $this->validate($request, [
-            'name'                              => 'required',
-            'url'                               => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'scrolling_enabled'                 => 'required|integer',
-            'min_distance_to_enable_scrolling'  => 'required',
-            'accelerometer_enabled'             => 'required|integer',
-            'interval'                          => 'required',
-            'sensitivity'                       => 'required',
-            'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+        $this->validate($request, [ 
+            'pos_x'          => 'required',
+            'pos_y'          => 'required',
+            'pos_z'          => 'required',
+            'pos_roll'       => 'required',
+            'pos_pitch'      => 'required',
+            'pos_yaw'        => 'required',
+            'destination'    => 'required|integer',
+            'width'          => 'required',
+            'height'         => 'required',
+            'scene_id'       => 'required|integer'
         ]);
 
-        $coverUrl = $request->file('url'); 
-
-        $cUrl = Cloudder::upload($coverUrl->getPathName(), null, array(
-            "folder" => "Virtualtour/Photo360",
-            "use_filename" => TRUE, 
-            "unique_filename" => FALSE
-        ));
-
         $dt = new Hotspot;
-        $dt->name = $request->name;
-        $dt->url = $cUrl->getResult()['url'];
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
+        $dt->pos_x = $request->pos_x;
+        $dt->pos_y = $request->pos_y;
+        $dt->pos_z = $request->pos_z;
+        $dt->pos_roll = $request->pos_roll;
+        $dt->pos_pitch = $request->pos_pitch;
+        $dt->pos_yaw = $request->pos_yaw;
+        $dt->destination = $request->destination;
+        $dt->width = $request->width; 
+        $dt->height = $request->height; 
+        $dt->scene_id = $user->scene_id;
         $dt->save();
 
         $jsonData = [
@@ -107,45 +98,29 @@ class HotspotController extends Controller {
      */
     public function update($id, Request $request){
         $this->validate($request, [
-            'name'                              => 'required', 
-            'scrolling_enabled'                 => 'required|integer',
-            'min_distance_to_enable_scrolling'  => 'required',
-            'accelerometer_enabled'             => 'required|integer',
-            'interval'                          => 'required',
-            'sensitivity'                       => 'required',
-            'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+            'pos_x'          => 'required',
+            'pos_y'          => 'required',
+            'pos_z'          => 'required',
+            'pos_roll'       => 'required',
+            'pos_pitch'      => 'required',
+            'pos_yaw'        => 'required',
+            'destination'    => 'required|integer',
+            'width'          => 'required',
+            'height'         => 'required',
+            'scene_id'       => 'required|integer'
         ]);
-
-        // upload Image
-        if(!empty($request->file('url'))){
-            $image = $request->file('url');
-
-            $d = Cloudder::upload($image->getPathName(), null, array(
-                "folder" => "Virtualtour/Photo360",
-                "use_filename" => TRUE, 
-                "unique_filename" => FALSE
-            ));
-
-            $cUrl = $d->getResult()['url'];
-        }
  
-
         $dt = Hotspot::findOrFail($id);
-        $dt->name = $request->name; 
-        if(!empty($request->file('url'))){
-            $dt->url = $cUrl;
-        }
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
+        $dt->pos_x = $request->pos_x;
+        $dt->pos_y = $request->pos_y;
+        $dt->pos_z = $request->pos_z;
+        $dt->pos_roll = $request->pos_roll;
+        $dt->pos_pitch = $request->pos_pitch;
+        $dt->pos_yaw = $request->pos_yaw;
+        $dt->destination = $request->destination;
+        $dt->width = $request->width; 
+        $dt->height = $request->height; 
+        $dt->scene_id = $user->scene_id;
         $dt->save();
 
         $jsonData = [
