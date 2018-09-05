@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-04 14:15:07 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 12:37:46
+ * @Last Modified time: 2018-09-05 15:29:24
  */
 
 namespace App\Http\Controllers\V1;
@@ -39,7 +39,7 @@ class TourController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Tour::findOrFail($id);
+        $dt = Tour::with('scene.hotspot')->findOrFail($id);
 
         $jsonData = [
             'data' => $dt,

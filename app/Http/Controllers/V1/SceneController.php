@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 09:05:33 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 10:07:28
+ * @Last Modified time: 2018-09-05 15:29:44
  */
 
 namespace App\Http\Controllers\V1;
@@ -22,7 +22,7 @@ class SceneController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Scene::get();
+        $listData = Scene::with('hotspot')->get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +39,7 @@ class SceneController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Scene::findOrFail($id);
+        $dt = Scene::with('hotspot')->findOrFail($id);
 
         $jsonData = [
             'data' => $dt,
