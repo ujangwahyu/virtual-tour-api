@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:37:52 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 09:51:30
+ * @Last Modified time: 2018-09-05 16:54:20
  */
 
 namespace App\Http\Controllers\V1;
@@ -48,7 +48,7 @@ class AuthController extends Controller {
             'iss' => "lumen-jwt", // Issuer of the token
             'sub' => $user->id, // Subject of the token
             'iat' => time(), // Time when JWT was issued. 
-            'exp' => time() + 600*60 // Expiration time
+            'exp' => time() + 60*60 // Expiration time
         ];
         
         // As you can see we are passing `JWT_SECRET` as the second parameter that will 
