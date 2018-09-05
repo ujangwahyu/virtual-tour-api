@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-04 14:53:05
+ * @Last Modified time: 2018-09-05 09:50:14
  */
 
 /*
@@ -48,6 +48,14 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'TourController@store');
         $app->post('/{id}', 'TourController@update');
         $app->delete('/{id}', 'TourController@destroy');
+    });
+
+    $router->group(['prefix' => 'scene'], function ($app) {
+        $app->get('/', 'SceneController@index');
+        $app->get('/{id}', 'SceneController@show');
+        $app->post('/', 'SceneController@store');
+        $app->post('/{id}', 'SceneController@update');
+        $app->delete('/{id}', 'SceneController@destroy');
     });
 });
 

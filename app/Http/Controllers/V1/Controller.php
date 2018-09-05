@@ -1,10 +1,12 @@
 <?php
+
 /*
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:37:52 
- * @Last Modified by:   Ujang Wahyu 
- * @Last Modified time: 2018-09-03 15:37:52 
+ * @Last Modified by: Ujang Wahyu
+ * @Last Modified time: 2018-09-05 09:06:16
  */
+
 namespace App\Http\Controllers\V1;
 
 use Laravel\Lumen\Routing\Controller as BaseController;

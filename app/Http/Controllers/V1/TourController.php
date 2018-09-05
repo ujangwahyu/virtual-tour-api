@@ -1,9 +1,10 @@
 <?php
+
 /*
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-04 14:15:07 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-04 15:14:09
+ * @Last Modified time: 2018-09-05 09:45:01
  */
 
 namespace App\Http\Controllers\V1;
@@ -57,10 +58,10 @@ class TourController extends Controller {
     public function store(Request $request){
         $user = $request->auth;
         $this->validate($request, [
-            'name'      => 'required',
-            'cover_url'      => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description'      => 'required|string',
-            'region_id'      => 'required'
+            'name'              => 'required',
+            'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description'       => 'required|string',
+            'region_id'         => 'required'
         ]);
 
         $coverUrl = $request->file('cover_url'); 
@@ -94,11 +95,11 @@ class TourController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'name'      => 'required', 
             'description'      => 'required|string',
-            'region_id'      => 'required',
-            'user_id'      => 'required'
+            'region_id'      => 'required' 
         ]);
 
         // upload icon
@@ -122,6 +123,7 @@ class TourController extends Controller {
         }
         $dt->description = $request->description;
         $dt->region_id = $request->region_id; 
+        $dt->user_id = $user->id;
         $dt->save();
 
         $jsonData = [
