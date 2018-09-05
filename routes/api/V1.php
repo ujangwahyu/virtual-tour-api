@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 14:08:27
+ * @Last Modified time: 2018-09-05 15:20:48
  */
 
 /*
@@ -76,9 +76,9 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
 });
 
 
-$router->group(['prefix' => 'daerah'], function ($app) {
-    $app->get('/', 'DaerahController@index');
-    $app->get('/{id}', 'DaerahController@show');
+$router->group(['prefix' => 'region'], function ($app) {
+    $app->get('/', 'RegionController@index');
+    $app->get('/{id}', 'RegionController@show');
 });
 
 $router->group(['prefix' => 'user'], 
