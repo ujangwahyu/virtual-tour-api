@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 12:35:10
+ * @Last Modified time: 2018-09-05 14:08:27
  */
 
 /*
@@ -64,6 +64,14 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'HotspotController@store');
         $app->post('/{id}', 'HotspotController@update');
         $app->delete('/{id}', 'HotspotController@destroy');
+    });
+
+    $router->group(['prefix' => 'photo360'], function ($app) {
+        $app->get('/', 'Photo360Controller@index');
+        $app->get('/{id}', 'Photo360Controller@show');
+        $app->post('/', 'Photo360Controller@store');
+        $app->post('/{id}', 'Photo360Controller@update');
+        $app->delete('/{id}', 'Photo360Controller@destroy');
     });
 });
 
