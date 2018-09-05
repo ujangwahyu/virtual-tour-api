@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 15:20:48
+ * @Last Modified time: 2018-09-05 15:25:58
  */
 
 /*
@@ -79,6 +79,11 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
 $router->group(['prefix' => 'region'], function ($app) {
     $app->get('/', 'RegionController@index');
     $app->get('/{id}', 'RegionController@show');
+});
+
+$router->group(['prefix' => 'tour'], function ($app) {
+    $app->get('/', 'TourController@index');
+    $app->get('/{id}', 'TourController@show'); 
 });
 
 $router->group(['prefix' => 'user'], 
