@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 15:32:04
+ * @Last Modified time: 2018-09-05 15:40:17
  */
 
 /*
@@ -100,6 +100,12 @@ $router->group(['prefix' => 'photo360'], function ($app) {
     $app->get('/', 'Photo360Controller@index');
     $app->get('/{id}', 'Photo360Controller@show'); 
 });
+
+$router->group(['prefix' => 'video360'], function ($app) {
+    $app->get('/', 'RegionController@index');
+    $app->get('/{id}', 'RegionController@show');
+});
+
 
 $router->group(['prefix' => 'user'], 
     function() use ($router) {
