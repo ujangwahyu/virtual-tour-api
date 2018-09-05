@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-04 14:15:07 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 09:45:01
+ * @Last Modified time: 2018-09-05 10:45:24
  */
 
 namespace App\Http\Controllers\V1;
@@ -22,7 +22,7 @@ class TourController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Tour::get();
+        $listData = Tour::with('scene')->get();
 
         $jsonData = [
             'data' => $listData,
