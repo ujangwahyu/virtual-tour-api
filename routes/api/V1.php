@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 15:40:17
+ * @Last Modified time: 2018-09-05 15:54:51
  */
 
 /*
@@ -73,6 +73,14 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/{id}', 'Photo360Controller@update');
         $app->delete('/{id}', 'Photo360Controller@destroy');
     });
+
+    $router->group(['prefix' => 'video360'], function ($app) {
+        $app->get('/', 'Video360Controller@index');
+        $app->get('/{id}', 'Video360Controller@show');
+        $app->post('/', 'Video360Controller@store');
+        $app->post('/{id}', 'Video360Controller@update');
+        $app->delete('/{id}', 'Video360Controller@destroy');
+    });
 });
 
 
@@ -102,8 +110,8 @@ $router->group(['prefix' => 'photo360'], function ($app) {
 });
 
 $router->group(['prefix' => 'video360'], function ($app) {
-    $app->get('/', 'RegionController@index');
-    $app->get('/{id}', 'RegionController@show');
+    $app->get('/', 'Video360Controller@index');
+    $app->get('/{id}', 'Video360Controller@show');
 });
 
 
