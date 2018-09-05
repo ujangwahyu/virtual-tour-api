@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 10:49:40 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 11:19:49
+ * @Last Modified time: 2018-09-05 11:28:41
  */
 
 namespace App\Http\Controllers\V1;
@@ -79,7 +79,7 @@ class HotspotController extends Controller {
         $dt->destination = $request->destination;
         $dt->width = $request->width; 
         $dt->height = $request->height; 
-        $dt->scene_id = $user->scene_id;
+        $dt->scene_id = $request->scene_id;
         $dt->save();
 
         $jsonData = [
@@ -120,7 +120,7 @@ class HotspotController extends Controller {
         $dt->destination = $request->destination;
         $dt->width = $request->width; 
         $dt->height = $request->height; 
-        $dt->scene_id = $user->scene_id;
+        $dt->scene_id = $request->scene_id;
         $dt->save();
 
         $jsonData = [
