@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 09:50:14
+ * @Last Modified time: 2018-09-05 10:52:05
  */
 
 /*
@@ -56,6 +56,14 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'SceneController@store');
         $app->post('/{id}', 'SceneController@update');
         $app->delete('/{id}', 'SceneController@destroy');
+    });
+
+    $router->group(['prefix' => 'hotspot'], function ($app) {
+        $app->get('/', 'HotspotController@index');
+        $app->get('/{id}', 'HotspotController@show');
+        $app->post('/', 'HotspotController@store');
+        $app->post('/{id}', 'HotspotController@update');
+        $app->delete('/{id}', 'HotspotController@destroy');
     });
 });
 

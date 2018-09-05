@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-04 11:35:04 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-04 12:33:13
+ * @Last Modified time: 2018-09-05 10:54:29
  */
 
 namespace App\Models;
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class Hotspot extends Model{
+class HotspotController extends Model{
     
     public $timestamps = false;
     /**
