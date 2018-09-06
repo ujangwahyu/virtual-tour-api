@@ -91,6 +91,7 @@ $router->group(['prefix' => 'region'], function ($app) {
 
 $router->group(['prefix' => 'tour'], function ($app) {
     $app->get('/', 'TourController@index');
+    $app->post('/', 'TourController@store');
     $app->get('/{id}', 'TourController@show'); 
 });
 
