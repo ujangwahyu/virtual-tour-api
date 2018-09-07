@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 10:49:40 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 11:28:41
+ * @Last Modified time: 2018-09-07 15:13:24
  */
 
 namespace App\Http\Controllers\V1;
@@ -54,8 +54,7 @@ class HotspotController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        $user = $request->auth;
+    public function store(Request $request){ 
         $this->validate($request, [ 
             'pos_x'          => 'required',
             'pos_y'          => 'required',
