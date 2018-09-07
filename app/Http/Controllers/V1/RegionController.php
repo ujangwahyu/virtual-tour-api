@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 15:19:13 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-07 15:02:08
+ * @Last Modified time: 2018-09-07 15:37:16
  */
 
 namespace App\Http\Controllers\V1;
@@ -21,7 +21,7 @@ class RegionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Region::with('tour.scene.hotspot')->get();
+        $listData = Region::get();
 
         $jsonData = [
             'data' => $listData,
@@ -38,7 +38,7 @@ class RegionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Region::with('tour.scene.hotspot')->findOrFail($id);
+        $dt = Region::findOrFail($id);
 
         $jsonData = [
             'data' => $dt,
