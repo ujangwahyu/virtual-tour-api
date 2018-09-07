@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 15:19:13 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 15:23:24
+ * @Last Modified time: 2018-09-07 13:38:14
  */
 
 namespace App\Http\Controllers\V1;
@@ -59,11 +59,11 @@ class RegionController extends Controller {
         $this->validate($request, [
             'name'              => 'required',
             'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description'       => 'required|string',
-            'region_id'         => 'required'
+            'icon'              => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $coverUrl = $request->file('cover_url'); 
+        $iconUrl = $request->file('icon'); 
 
         $cUrl = Cloudder::upload($coverUrl->getPathName(), null, array(
             "folder" => "Virtualtour/Covertour",
@@ -71,12 +71,16 @@ class RegionController extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $dt = new Tour;
+        $iUrl = Cloudder::upload($iconUrl->getPathName(), null, array(
+            "folder" => "Virtualtour/Covertour",
+            "use_filename" => TRUE, 
+            "unique_filename" => FALSE
+        )); 
+
+        $dt = new Region;
         $dt->name = $request->name;
         $dt->cover_url = $cUrl->getResult()['url'];
-        $dt->description = $request->description;
-        $dt->region_id = $request->region_id;
-        $dt->user_id = $user->id;
+        $dt->icon = $iUrl->getResult()['url'];   
         $dt->save();
 
         $jsonData = [
@@ -96,9 +100,9 @@ class RegionController extends Controller {
     public function update($id, Request $request){
         $user = $request->auth;
         $this->validate($request, [
-            'name'      => 'required', 
-            'description'      => 'required|string',
-            'region_id'      => 'required' 
+            'name'              => 'required',
+            'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'icon'              => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         // upload icon
@@ -113,16 +117,28 @@ class RegionController extends Controller {
 
             $cUrl = $d->getResult()['url'];
         }
- 
 
-        $dt = Tour::findOrFail($id);
+        if(!empty($request->file('icon'))){
+            $image = $request->file('icon');
+
+            $d = Cloudder::upload($image->getPathName(), null, array(
+                "folder" => "Virtualtour/Covertour",
+                "use_filename" => TRUE, 
+                "unique_filename" => FALSE
+            ));
+
+            $iUrl = $d->getResult()['url'];
+        }
+ 
+        $dt = Region::findOrFail($id);
         $dt->name = $request->name; 
         if(!empty($request->file('cover_url'))){
             $dt->cover_url = $cUrl;
         }
-        $dt->description = $request->description;
-        $dt->region_id = $request->region_id; 
-        $dt->user_id = $user->id;
+        if(!empty($request->file('icon'))){
+            $dt->icon = $iUrl;
+        }  
+
         $dt->save();
 
         $jsonData = [
@@ -141,7 +157,7 @@ class RegionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, Request $request){
-        $data = Tour::findOrFail($id);
+        $data = Region::findOrFail($id);
         $data->delete();
 
         $jsonData = [
