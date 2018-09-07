@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-07 15:14:01
+ * @Last Modified time: 2018-09-07 15:29:08
  */
 
 /*
@@ -42,11 +42,19 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         return response()->json($users);
     });
 
+    $router->group(['prefix' => 'region'], function ($app) {
+        $app->get('/', 'RegionController@index');
+        $app->get('/{id}', 'RegionController@show');
+        $app->post('/', 'RegionController@store');
+        $app->put('/{id}', 'RegionController@update');
+        $app->delete('/{id}', 'RegionController@destroy');
+    });
+
     $router->group(['prefix' => 'tour'], function ($app) {
         $app->get('/', 'TourController@index');
         $app->get('/{id}', 'TourController@show');
         $app->post('/', 'TourController@store');
-        $app->post('/{id}', 'TourController@update');
+        $app->put('/{id}', 'TourController@update');
         $app->delete('/{id}', 'TourController@destroy');
     });
 
@@ -54,7 +62,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->get('/', 'SceneController@index');
         $app->get('/{id}', 'SceneController@show');
         $app->post('/', 'SceneController@store');
-        $app->post('/{id}', 'SceneController@update');
+        $app->put('/{id}', 'SceneController@update');
         $app->delete('/{id}', 'SceneController@destroy');
     });
 
@@ -62,7 +70,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->get('/', 'HotspotController@index');
         $app->get('/{id}', 'HotspotController@show');
         $app->post('/', 'HotspotController@store');
-        $app->post('/{id}', 'HotspotController@update');
+        $app->put('/{id}', 'HotspotController@update');
         $app->delete('/{id}', 'HotspotController@destroy');
     });
 
@@ -70,7 +78,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->get('/', 'Photo360Controller@index');
         $app->get('/{id}', 'Photo360Controller@show');
         $app->post('/', 'Photo360Controller@store');
-        $app->post('/{id}', 'Photo360Controller@update');
+        $app->put('/{id}', 'Photo360Controller@update');
         $app->delete('/{id}', 'Photo360Controller@destroy');
     });
 
@@ -78,11 +86,10 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->get('/', 'Video360Controller@index');
         $app->get('/{id}', 'Video360Controller@show');
         $app->post('/', 'Video360Controller@store');
-        $app->post('/{id}', 'Video360Controller@update');
+        $app->put('/{id}', 'Video360Controller@update');
         $app->delete('/{id}', 'Video360Controller@destroy');
     });
 });
-
 
 $router->group(['prefix' => 'region'], function ($app) {
     $app->get('/', 'RegionController@index');
