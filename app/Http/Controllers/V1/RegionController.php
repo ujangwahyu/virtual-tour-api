@@ -3,7 +3,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 15:19:13 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-07 13:38:14
+ * @Last Modified time: 2018-09-07 15:02:08
  */
 
 namespace App\Http\Controllers\V1;
@@ -54,8 +54,7 @@ class RegionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        $user = $request->auth;
+    public function store(Request $request){ 
         $this->validate($request, [
             'name'              => 'required',
             'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -97,8 +96,7 @@ class RegionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request){
-        $user = $request->auth;
+    public function update($id, Request $request){ 
         $this->validate($request, [
             'name'              => 'required',
             'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
