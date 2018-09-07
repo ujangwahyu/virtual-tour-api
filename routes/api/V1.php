@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-03 15:41:34 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-07 15:10:37
+ * @Last Modified time: 2018-09-07 15:12:34
  */
 
 /*
@@ -102,8 +102,7 @@ $router->group(['prefix' => 'scene'], function ($app) {
 
 $router->group(['prefix' => 'hotspot'], function ($app) {
     $app->get('/', 'HotspotController@index');
-    $app->get('/{id}', 'HotspotController@show');
-    $app->post('/', 'HotspotController@store'); 
+    $app->get('/{id}', 'HotspotController@show'); 
 });
 
 $router->group(['prefix' => 'photo360'], function ($app) {
