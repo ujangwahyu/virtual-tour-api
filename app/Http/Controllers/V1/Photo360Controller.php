@@ -4,7 +4,7 @@
  * @Author: Ujang Wahyu 
  * @Date: 2018-09-05 13:47:53 
  * @Last Modified by: Ujang Wahyu
- * @Last Modified time: 2018-09-05 14:05:17
+ * @Last Modified time: 2018-09-07 15:20:54
  */
 
 namespace App\Http\Controllers\V1;
@@ -118,6 +118,7 @@ class Photo360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required',
             'url'                               => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
