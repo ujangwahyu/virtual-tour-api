@@ -107,7 +107,7 @@ class HotspotController extends Controller {
             'width'          => 'required',
             'height'         => 'required',
             'scene_id'       => 'required|integer'
-        ]);
+        ]); 
  
         $dt = Hotspot::findOrFail($id);
         $dt->pos_x = $request->pos_x;

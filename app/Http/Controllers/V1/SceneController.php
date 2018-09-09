@@ -107,6 +107,7 @@ class SceneController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required', 
             'scrolling_enabled'                 => 'required|integer',
