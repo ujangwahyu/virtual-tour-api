@@ -51,8 +51,9 @@ class TourController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
-    public function TourClient(Request $request){ 
-        $listData = Tour::with('scene.hotspot')->get();
+    public function TourClient($id, Request $request){ 
+    
+        $listData = Tour::with('scene.hotspot')->where('region_id', $id)->get();
 
         $jsonData = [
             'data' => $listData,
