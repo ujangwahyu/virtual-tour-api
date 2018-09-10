@@ -41,7 +41,7 @@ class TourController extends Controller {
      */
     public function show($id){
         $user = $request->auth;
-        $dt = Tour::with('scene')->where('user_id', $user->id)->findOrFail($id);
+        $dt = Tour::with('scene')->with('scene.hotspot')->where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $dt,
