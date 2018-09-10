@@ -51,6 +51,17 @@ class TourController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function TourClient(Request $request){ 
+        $listData = Tour::with('scene.hotspot')->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
