@@ -49,6 +49,18 @@ class Photo360Controller extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function byRegion($id, Request $request){ 
+    
+        $listData = Photo360::where('region_id', $id)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
