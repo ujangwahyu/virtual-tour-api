@@ -22,7 +22,8 @@ class TourController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Tour::get();
+        $user = $request->auth;
+        $listData = Tour::where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
