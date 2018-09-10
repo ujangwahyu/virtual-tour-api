@@ -92,8 +92,9 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
 });
 
 $router->group(['prefix' => 'region'], function ($app) {
-    $app->get('/', 'RegionController@index');
-    $app->get('/{id}', 'RegionController@show');
+    $app->get('/', 'RegionController@indexClient');
+    $app->get('/{id}', 'RegionController@showClient');
+    $app->get('/{id}/tour', 'TourController@tourClient');
 });
 
 $router->group(['prefix' => 'tour'], function ($app) {

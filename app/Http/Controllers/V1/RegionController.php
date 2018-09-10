@@ -48,6 +48,34 @@ class RegionController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function indexClient(Request $request){
+        $listData = Region::get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showClient($id){
+        $dt = Region::findOrFail($id);
+
+        $jsonData = [
+            'data' => $dt,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
