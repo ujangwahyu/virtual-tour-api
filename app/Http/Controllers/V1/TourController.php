@@ -22,7 +22,7 @@ class TourController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Tour::with('scene.hotspot')->get();
+        $listData = Tour::get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +39,7 @@ class TourController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Tour::with('scene.hotspot')->findOrFail($id);
+        $dt = Tour::findOrFail($id);
 
         $jsonData = [
             'data' => $dt,
