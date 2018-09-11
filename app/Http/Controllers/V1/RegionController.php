@@ -38,10 +38,10 @@ class RegionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Region::findOrFail($id);
+        $listData = Region::findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -66,10 +66,10 @@ class RegionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function showClient($id){
-        $dt = Region::findOrFail($id);
+        $listData = Region::findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -104,14 +104,14 @@ class RegionController extends Controller {
             "unique_filename" => FALSE
         )); 
 
-        $dt = new Region;
-        $dt->name = $request->name;
-        $dt->cover_url = $cUrl->getResult()['url'];
-        $dt->icon = $iUrl->getResult()['url'];   
-        $dt->save();
+        $listData = new Region;
+        $listData->name = $request->name;
+        $listData->cover_url = $cUrl->getResult()['url'];
+        $listData->icon = $iUrl->getResult()['url'];   
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -156,19 +156,19 @@ class RegionController extends Controller {
             $iUrl = $d->getResult()['url'];
         }
  
-        $dt = Region::findOrFail($id);
-        $dt->name = $request->name; 
+        $listData = Region::findOrFail($id);
+        $listData->name = $request->name; 
         if(!empty($request->file('cover_url'))){
-            $dt->cover_url = $cUrl;
+            $listData->cover_url = $cUrl;
         }
         if(!empty($request->file('icon'))){
-            $dt->icon = $iUrl;
+            $listData->icon = $iUrl;
         }  
 
-        $dt->save();
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 

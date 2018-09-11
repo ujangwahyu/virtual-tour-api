@@ -39,10 +39,10 @@ class Video360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Video360::findOrFail($id);
+        $listData = Video360::findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -80,24 +80,24 @@ class Video360Controller extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $dt = new Video360;
-        $dt->name = $request->name;
-        $dt->url = $request->url;
-        $dt->cover_url = $cUrl->getResult()['url'];
-        $dt->description = $request->description;
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData = new Video360;
+        $listData->name = $request->name;
+        $listData->url = $request->url;
+        $listData->cover_url = $cUrl->getResult()['url'];
+        $listData->description = $request->description;
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->tour_id = $request->tour_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -139,25 +139,25 @@ class Video360Controller extends Controller {
         }
  
 
-        $dt = Video360::findOrFail($id);
-        $dt->name = $request->name; 
+        $listData = Video360::findOrFail($id);
+        $listData->name = $request->name; 
         if(!empty($request->file('cover_url'))){
-            $dt->url = $cUrl;
+            $listData->url = $cUrl;
         }
-        $dt->description = $request->description;
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData->description = $request->description;
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->tour_id = $request->tour_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 

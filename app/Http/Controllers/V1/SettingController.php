@@ -38,10 +38,10 @@ class SettingController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Setting::findOrFail($id);
+        $listData = Setting::findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -64,26 +64,26 @@ class SettingController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'width'          => 'required',
+            'wilistDatah'          => 'required',
             'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]);
 
-        $dt = new Hotspot;
-        $dt->pos_x = $request->pos_x;
-        $dt->pos_y = $request->pos_y;
-        $dt->pos_z = $request->pos_z;
-        $dt->pos_roll = $request->pos_roll;
-        $dt->pos_pitch = $request->pos_pitch;
-        $dt->pos_yaw = $request->pos_yaw;
-        $dt->destination = $request->destination;
-        $dt->width = $request->width; 
-        $dt->height = $request->height; 
-        $dt->scene_id = $request->scene_id;
-        $dt->save();
+        $listData = new Hotspot;
+        $listData->pos_x = $request->pos_x;
+        $listData->pos_y = $request->pos_y;
+        $listData->pos_z = $request->pos_z;
+        $listData->pos_roll = $request->pos_roll;
+        $listData->pos_pitch = $request->pos_pitch;
+        $listData->pos_yaw = $request->pos_yaw;
+        $listData->destination = $request->destination;
+        $listData->wilistDatah = $request->wilistDatah; 
+        $listData->height = $request->height; 
+        $listData->scene_id = $request->scene_id;
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -105,26 +105,26 @@ class SettingController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'width'          => 'required',
+            'wilistDatah'          => 'required',
             'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]);
  
-        $dt = Hotspot::findOrFail($id);
-        $dt->pos_x = $request->pos_x;
-        $dt->pos_y = $request->pos_y;
-        $dt->pos_z = $request->pos_z;
-        $dt->pos_roll = $request->pos_roll;
-        $dt->pos_pitch = $request->pos_pitch;
-        $dt->pos_yaw = $request->pos_yaw;
-        $dt->destination = $request->destination;
-        $dt->width = $request->width; 
-        $dt->height = $request->height; 
-        $dt->scene_id = $request->scene_id;
-        $dt->save();
+        $listData = Hotspot::findOrFail($id);
+        $listData->pos_x = $request->pos_x;
+        $listData->pos_y = $request->pos_y;
+        $listData->pos_z = $request->pos_z;
+        $listData->pos_roll = $request->pos_roll;
+        $listData->pos_pitch = $request->pos_pitch;
+        $listData->pos_yaw = $request->pos_yaw;
+        $listData->destination = $request->destination;
+        $listData->wilistDatah = $request->wilistDatah; 
+        $listData->height = $request->height; 
+        $listData->scene_id = $request->scene_id;
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 

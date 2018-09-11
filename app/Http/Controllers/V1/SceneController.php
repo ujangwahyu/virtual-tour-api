@@ -39,10 +39,10 @@ class SceneController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Scene::with('hotspot')->findOrFail($id);
+        $listData = Scene::with('hotspot')->findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -78,22 +78,22 @@ class SceneController extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $dt = new Scene;
-        $dt->name = $request->name;
-        $dt->url = $cUrl->getResult()['url'];
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData = new Scene;
+        $listData->name = $request->name;
+        $listData->url = $cUrl->getResult()['url'];
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->tour_id = $request->tour_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -134,24 +134,24 @@ class SceneController extends Controller {
         }
  
 
-        $dt = Scene::findOrFail($id);
-        $dt->name = $request->name; 
+        $listData = Scene::findOrFail($id);
+        $listData->name = $request->name; 
         if(!empty($request->file('url'))){
-            $dt->url = $cUrl;
+            $listData->url = $cUrl;
         }
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->tour_id = $request->tour_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 

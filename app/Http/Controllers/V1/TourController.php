@@ -86,16 +86,16 @@ class TourController extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $dt = new Tour;
-        $dt->name = $request->name;
-        $dt->cover_url = $cUrl->getResult()['url'];
-        $dt->description = $request->description;
-        $dt->region_id = $request->region_id;
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData = new Tour;
+        $listData->name = $request->name;
+        $listData->cover_url = $cUrl->getResult()['url'];
+        $listData->description = $request->description;
+        $listData->region_id = $request->region_id;
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -130,18 +130,18 @@ class TourController extends Controller {
         }
  
 
-        $dt = Tour::findOrFail($id);
-        $dt->name = $request->name; 
+        $listData = Tour::findOrFail($id);
+        $listData->name = $request->name; 
         if(!empty($request->file('cover_url'))){
-            $dt->cover_url = $cUrl;
+            $listData->cover_url = $cUrl;
         }
-        $dt->description = $request->description;
-        $dt->region_id = $request->region_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData->description = $request->description;
+        $listData->region_id = $request->region_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 

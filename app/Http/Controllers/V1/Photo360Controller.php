@@ -39,10 +39,10 @@ class Photo360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Photo360::with('user')->findOrFail($id);
+        $listData = Photo360::with('user')->findOrFail($id);
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diambil.'
         ];
 
@@ -51,7 +51,7 @@ class Photo360Controller extends Controller {
 
     public function byRegion($id, Request $request){ 
     
-        $listData = Photo360::where('region_id', $id)->get();
+        $listData = Photo360::with('user')->where('region_id', $id)->get();
 
         $jsonData = [
             'data' => $listData,
@@ -99,24 +99,24 @@ class Photo360Controller extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $dt = new Photo360;
-        $dt->name = $request->name;
-        $dt->url = $pUrl->getResult()['url'];
-        $dt->cover_url = $cUrl->getResult()['url'];
-        $dt->description = $request->description;
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->region_id = $request->region_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData = new Photo360;
+        $listData->name = $request->name;
+        $listData->url = $pUrl->getResult()['url'];
+        $listData->cover_url = $cUrl->getResult()['url'];
+        $listData->description = $request->description;
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->region_id = $request->region_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data'=> $dt, 
+            'data'=> $listData, 
             'message'=> 'Data berhasil dibuat.'
         ];
         return $this->response($jsonData, 'created');
@@ -173,28 +173,28 @@ class Photo360Controller extends Controller {
         }
  
 
-        $dt = Photo360::findOrFail($id);
-        $dt->name = $request->name; 
+        $listData = Photo360::findOrFail($id);
+        $listData->name = $request->name; 
         if(!empty($request->file('url'))){
-            $dt->url = $pUrl;
+            $listData->url = $pUrl;
         }
         if(!empty($request->file('cover_url'))){
-            $dt->cover_url = $cUrl;
+            $listData->cover_url = $cUrl;
         }
-        $dt->description = $request->description;
-        $dt->scrolling_enabled = $request->scrolling_enabled;
-        $dt->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $dt->accelerometer_enabled = $request->accelerometer_enabled;
-        $dt->interval = $request->interval;
-        $dt->sensitivity = $request->sensitivity;
-        $dt->left_right_enabled = $request->left_right_enabled;
-        $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->region_id = $request->region_id; 
-        $dt->user_id = $user->id;
-        $dt->save();
+        $listData->description = $request->description;
+        $listData->scrolling_enabled = $request->scrolling_enabled;
+        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
+        $listData->accelerometer_enabled = $request->accelerometer_enabled;
+        $listData->interval = $request->interval;
+        $listData->sensitivity = $request->sensitivity;
+        $listData->left_right_enabled = $request->left_right_enabled;
+        $listData->up_down_enabled = $request->up_down_enabled; 
+        $listData->region_id = $request->region_id; 
+        $listData->user_id = $user->id;
+        $listData->save();
 
         $jsonData = [
-            'data' => $dt,
+            'data' => $listData,
             'message' => 'Data berhasil diupdate.'
         ];
 
