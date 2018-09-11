@@ -98,12 +98,12 @@ $router->group(['prefix' => 'region'], function ($app) {
     $app->get('/{id}/photo360', 'Photo360Controller@byRegion');
 });
 
-$router->group(['prefix' => 'tour'], function ($app) {
-    $app->get('/', 'TourController@tourClient');
-    $app->post('/', 'TourController@store');
-    $app->get('/{id}', 'TourController@show'); 
-    $app->get('/{id}/photo360', 'Photo360Controller@byTour');
-});
+    $router->group(['prefix' => 'tour'], function ($app) {
+        $app->get('/', 'TourController@tourClient');
+        $app->post('/', 'TourController@store');
+        $app->get('/{id}', 'TourController@show'); 
+        $app->get('/{id}/photo360', 'Photo360Controller@byTour');
+    });
 
 $router->group(['prefix' => 'scene'], function ($app) {
     $app->get('/', 'SceneController@index');
