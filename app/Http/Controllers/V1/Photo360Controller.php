@@ -22,7 +22,7 @@ class Photo360Controller extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Photo360::get();
+        $listData = Photo360::with('user')->get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +39,7 @@ class Photo360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $dt = Photo360::findOrFail($id);
+        $dt = Photo360::with('user')->findOrFail($id);
 
         $jsonData = [
             'data' => $dt,
