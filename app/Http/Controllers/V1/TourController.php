@@ -23,7 +23,7 @@ class TourController extends Controller {
     */
     public function index(Request $request){
         $user = $request->auth;
-        $listData = Tour::with('scene.hotspot')->where('user_id', $user->id)->get();
+        $listData = Tour::with('scene.hotspot','user')->where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
