@@ -81,7 +81,7 @@ class Photo360Controller extends Controller {
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
             'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+            'region_id'                           => 'required'
         ]);
 
         $url = $request->file('url'); 
@@ -111,7 +111,7 @@ class Photo360Controller extends Controller {
         $dt->sensitivity = $request->sensitivity;
         $dt->left_right_enabled = $request->left_right_enabled;
         $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
+        $dt->region_id = $request->region_id; 
         $dt->user_id = $user->id;
         $dt->save();
 
@@ -143,7 +143,7 @@ class Photo360Controller extends Controller {
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
             'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+            'region_id'                           => 'required'
         ]);
 
         // upload Image
@@ -189,7 +189,7 @@ class Photo360Controller extends Controller {
         $dt->sensitivity = $request->sensitivity;
         $dt->left_right_enabled = $request->left_right_enabled;
         $dt->up_down_enabled = $request->up_down_enabled; 
-        $dt->tour_id = $request->tour_id; 
+        $dt->region_id = $request->region_id; 
         $dt->user_id = $user->id;
         $dt->save();
 

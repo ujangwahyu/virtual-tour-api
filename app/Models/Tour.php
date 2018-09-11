@@ -43,16 +43,6 @@ class Tour extends Model{
         return $this->belongsTo('App\Models\Region');
     }
 
-    public function photo360()
-    {
-        return $this->hasMany('App\Models\Photo360');
-    }
-
-    public function video360()
-    {
-        return $this->hasMany('App\Models\Video360');
-    }
-
     public function scene()
     {
         return $this->hasMany('App\Models\Scene');

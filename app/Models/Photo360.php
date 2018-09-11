@@ -39,7 +39,7 @@ class Photo360 extends Model{
         return $this->belongsTo('App\Models\User');
     }
 
-    public function tour()
+    public function region()
     {
         return $this->belongsTo('App\Models\Tour');
     }

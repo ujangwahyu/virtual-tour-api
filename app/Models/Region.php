@@ -47,4 +47,9 @@ class Region extends Model{
         return $this->hasMany('App\Models\Tour');
     }
 
+    public function photo360()
+    {
+        return $this->hasMany('App\Models\Photo360');
+    }
+
 }
