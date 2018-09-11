@@ -22,7 +22,7 @@ class Video360Controller extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Video360::get();
+        $listData = Video360::with('user')->get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +39,7 @@ class Video360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $listData = Video360::findOrFail($id);
+        $listData = Video360::with('user')->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
