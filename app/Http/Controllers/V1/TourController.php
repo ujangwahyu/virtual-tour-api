@@ -53,7 +53,7 @@ class TourController extends Controller {
 
     public function byRegion($id, Request $request){ 
     
-        $listData = Tour::with('scene.hotspot')->where('region_id', $id)->get();
+        $listData = Tour::with('scene.hotspot','user')->where('region_id', $id)->get();
 
         $jsonData = [
             'data' => $listData,
