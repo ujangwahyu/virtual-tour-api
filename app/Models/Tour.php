@@ -30,7 +30,7 @@ class Tour extends Model{
      * @var array
      */
     protected $fillable = [
-        'name', 'cover_url','description'
+        'name', 'cover_url','description','location'
     ];
 
     public function user()

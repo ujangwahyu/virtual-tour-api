@@ -75,6 +75,7 @@ class TourController extends Controller {
             'name'              => 'required',
             'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'       => 'required|string',
+            'location'       => 'required|string',
             'region_id'         => 'required'
         ]);
 
@@ -90,6 +91,7 @@ class TourController extends Controller {
         $listData->name = $request->name;
         $listData->cover_url = $cUrl->getResult()['url'];
         $listData->description = $request->description;
+        $listData->location = $request->location;
         $listData->region_id = $request->region_id;
         $listData->user_id = $user->id;
         $listData->save();
@@ -136,6 +138,7 @@ class TourController extends Controller {
             $listData->cover_url = $cUrl;
         }
         $listData->description = $request->description;
+        $listData->location = $request->location;
         $listData->region_id = $request->region_id; 
         $listData->user_id = $user->id;
         $listData->save();
