@@ -92,7 +92,7 @@ class TourController extends Controller {
         $listData->cover_url = $cUrl->getResult()['url'];
         $listData->description = $request->description;
         $listData->location = $request->location;
-        $listData->region_id = $request->region_id;
+        $listData->region_id = $user->region_id;
         $listData->user_id = $user->id;
         $listData->save();
 
@@ -139,7 +139,7 @@ class TourController extends Controller {
         }
         $listData->description = $request->description;
         $listData->location = $request->location;
-        $listData->region_id = $request->region_id; 
+        $listData->region_id = $user->region_id;
         $listData->user_id = $user->id;
         $listData->save();
 

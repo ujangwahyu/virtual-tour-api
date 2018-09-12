@@ -80,8 +80,7 @@ class Photo360Controller extends Controller {
             'interval'                          => 'required',
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'region_id'                           => 'required'
+            'up_down_enabled'                   => 'required'
         ]);
 
         $url = $request->file('url'); 
@@ -111,7 +110,7 @@ class Photo360Controller extends Controller {
         $listData->sensitivity = $request->sensitivity;
         $listData->left_right_enabled = $request->left_right_enabled;
         $listData->up_down_enabled = $request->up_down_enabled; 
-        $listData->region_id = $request->region_id; 
+        $listData->region_id = $user->region_id;
         $listData->user_id = $user->id;
         $listData->save();
 
@@ -142,8 +141,7 @@ class Photo360Controller extends Controller {
             'interval'                          => 'required',
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'region_id'                           => 'required'
+            'up_down_enabled'                   => 'required'
         ]);
 
         // upload Image
@@ -189,7 +187,7 @@ class Photo360Controller extends Controller {
         $listData->sensitivity = $request->sensitivity;
         $listData->left_right_enabled = $request->left_right_enabled;
         $listData->up_down_enabled = $request->up_down_enabled; 
-        $listData->region_id = $request->region_id; 
+        $listData->region_id = $user->region_id; 
         $listData->user_id = $user->id;
         $listData->save();
 
