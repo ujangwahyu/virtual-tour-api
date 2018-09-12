@@ -75,8 +75,7 @@ class TourController extends Controller {
             'name'              => 'required',
             'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'       => 'required|string',
-            'location'       => 'required|string',
-            'region_id'         => 'required'
+            'location'       => 'required|string' 
         ]);
 
         $coverUrl = $request->file('cover_url'); 
@@ -114,8 +113,7 @@ class TourController extends Controller {
         $user = $request->auth;
         $this->validate($request, [
             'name'      => 'required', 
-            'description'      => 'required|string',
-            'region_id'      => 'required' 
+            'description'      => 'required|string' 
         ]);
 
         // upload icon
