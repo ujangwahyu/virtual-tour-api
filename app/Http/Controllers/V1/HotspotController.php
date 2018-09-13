@@ -21,7 +21,8 @@ class HotspotController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Hotspot::get();
+        $user = $request->auth;
+        $listData = Hotspot::where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
@@ -38,7 +39,8 @@ class HotspotController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $listData = Hotspot::findOrFail($id);
+        $user = $request->auth;
+        $listData = Hotspot::where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
@@ -55,6 +57,7 @@ class HotspotController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){ 
+        $user = $request->auth;
         $this->validate($request, [ 
             'pos_x'          => 'required',
             'pos_y'          => 'required',
@@ -94,6 +97,7 @@ class HotspotController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'pos_x'          => 'required',
             'pos_y'          => 'required',
