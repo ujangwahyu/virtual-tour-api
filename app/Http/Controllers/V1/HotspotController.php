@@ -22,7 +22,7 @@ class HotspotController extends Controller {
     */
     public function index(Request $request){
         $user = $request->auth;
-        $listData = Hotspot::where('user_id', $user->id)->get();
+        $listData = Hotspot::get();
 
         $jsonData = [
             'data' => $listData,
@@ -40,7 +40,7 @@ class HotspotController extends Controller {
      */
     public function show($id){
         $user = $request->auth;
-        $listData = Hotspot::where('user_id', $user->id)->findOrFail($id);
+        $listData = Hotspot::findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
