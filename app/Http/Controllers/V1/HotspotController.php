@@ -63,7 +63,7 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'wilistDatah'          => 'required',
+            'width'          => 'required',
             'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]);
@@ -76,7 +76,7 @@ class HotspotController extends Controller {
         $listData->pos_pitch = $request->pos_pitch;
         $listData->pos_yaw = $request->pos_yaw;
         $listData->destination = $request->destination;
-        $listData->wilistDatah = $request->wilistDatah; 
+        $listData->width = $request->width; 
         $listData->height = $request->height; 
         $listData->scene_id = $request->scene_id;
         $listData->save();
@@ -104,7 +104,7 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'wilistDatah'          => 'required',
+            'width'          => 'required',
             'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]); 
@@ -117,7 +117,7 @@ class HotspotController extends Controller {
         $listData->pos_pitch = $request->pos_pitch;
         $listData->pos_yaw = $request->pos_yaw;
         $listData->destination = $request->destination;
-        $listData->wilistDatah = $request->wilistDatah; 
+        $listData->width = $request->width; 
         $listData->height = $request->height; 
         $listData->scene_id = $request->scene_id;
         $listData->save();
