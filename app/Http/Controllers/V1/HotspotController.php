@@ -22,7 +22,7 @@ class HotspotController extends Controller {
     */
     public function index(Request $request){
         $user = $request->auth;
-        $listData = Hotspot::get();
+        $listData = Hotspot::where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
@@ -40,7 +40,7 @@ class HotspotController extends Controller {
      */
     public function show($id){
         $user = $request->auth;
-        $listData = Hotspot::findOrFail($id);
+        $listData = Hotspot::where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
@@ -66,7 +66,7 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'scene_id'       => 'required|integer'
+            'scene_id'       => 'required|integer' 
         ]);
 
         $listData = new Hotspot;
@@ -80,6 +80,7 @@ class HotspotController extends Controller {
         $listData->width = $request->width; 
         $listData->height = $request->height; 
         $listData->scene_id = $request->scene_id;
+        $listData->user_id = $user->id;
         $listData->save();
 
         $jsonData = [
@@ -106,7 +107,7 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'scene_id'       => 'required|integer'
+            'scene_id'       => 'required|integer' 
         ]); 
  
         $listData = Hotspot::findOrFail($id);
@@ -120,6 +121,7 @@ class HotspotController extends Controller {
         $listData->width = $request->width; 
         $listData->height = $request->height; 
         $listData->scene_id = $request->scene_id;
+        $listData->user_id = $user->id;
         $listData->save();
 
         $jsonData = [
