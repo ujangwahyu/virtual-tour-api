@@ -22,7 +22,8 @@ class SceneController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Scene::with('hotspot')->get();
+        $user = $request->auth;
+        $listData = Scene::with('hotspot')->where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +40,8 @@ class SceneController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $listData = Scene::with('hotspot')->findOrFail($id);
+        $user = $request->auth;
+        $listData = Scene::with('hotspot')->where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
