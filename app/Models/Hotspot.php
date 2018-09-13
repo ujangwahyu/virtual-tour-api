@@ -33,6 +33,11 @@ class Hotspot extends Model{
         'pos_x', 'pos_y','pos_z', 'pos_roll','pos_pitch', 'pos_yaw','destination', 'width','height'
     ];
 
+    protected $casts = [
+        'width' => 'float',
+        'height' => 'float',
+    ];
+
     public function scene()
     {
         return $this->belongsTo('App\Models\Scene');
