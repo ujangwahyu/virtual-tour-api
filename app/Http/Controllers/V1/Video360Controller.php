@@ -49,6 +49,30 @@ class Video360Controller extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function byRegion($id, Request $request){ 
+    
+        $listData = Video360::with('user')->where('region_id', $id)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
+    public function newVideo360($id, Request $request){ 
+    
+        $listData = Video360::with('user')->where('region_id', $id)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -68,8 +92,7 @@ class Video360Controller extends Controller {
             'interval'                          => 'required',
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+            'up_down_enabled'                   => 'required' 
         ]);
 
         $coverUrl = $request->file('cover_url'); 
@@ -92,7 +115,7 @@ class Video360Controller extends Controller {
         $listData->sensitivity = $request->sensitivity;
         $listData->left_right_enabled = $request->left_right_enabled;
         $listData->up_down_enabled = $request->up_down_enabled; 
-        $listData->tour_id = $request->tour_id; 
+        $listData->region_id = $user->region_id;
         $listData->user_id = $user->id;
         $listData->save();
 
@@ -111,6 +134,7 @@ class Video360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request){
+        $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required',
             'url'                               => 'required', 
@@ -121,8 +145,7 @@ class Video360Controller extends Controller {
             'interval'                          => 'required',
             'sensitivity'                       => 'required',
             'left_right_enabled'                => 'required',
-            'up_down_enabled'                   => 'required',
-            'tour_id'                           => 'required'
+            'up_down_enabled'                   => 'required' 
         ]);
 
         // upload Image
@@ -152,7 +175,7 @@ class Video360Controller extends Controller {
         $listData->sensitivity = $request->sensitivity;
         $listData->left_right_enabled = $request->left_right_enabled;
         $listData->up_down_enabled = $request->up_down_enabled; 
-        $listData->tour_id = $request->tour_id; 
+        $listData->region_id = $user->region_id;
         $listData->user_id = $user->id;
         $listData->save();
 
