@@ -98,6 +98,7 @@ $router->group(['prefix' => 'region'], function ($app) {
     $app->get('/{id}/photo360', 'Photo360Controller@byRegion');
     $app->get('/{id}/video360', 'Video360Controller@byRegion');
     $app->get('/{id}/newphoto360', 'Photo360Controller@newPhoto360');
+    $app->get('/{id}/newvideo360', 'Video360Controller@newVideo360');
 });
 
 $router->group(['prefix' => 'tour'], function ($app) {
