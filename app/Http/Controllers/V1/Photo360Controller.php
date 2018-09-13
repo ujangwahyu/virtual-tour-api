@@ -22,7 +22,8 @@ class Photo360Controller extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        $listData = Photo360::with('user')->get();
+        $user = $request->auth;
+        $listData = Photo360::with('user')->where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
@@ -39,7 +40,8 @@ class Photo360Controller extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $listData = Photo360::with('user')->findOrFail($id);
+        $user = $request->auth;
+        $listData = Photo360::with('user')->where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
@@ -50,7 +52,7 @@ class Photo360Controller extends Controller {
     }
 
     public function byRegion($id, Request $request){ 
-    
+
         $listData = Photo360::with('user')->where('region_id', $id)->get();
 
         $jsonData = [
