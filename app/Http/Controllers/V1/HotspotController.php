@@ -63,8 +63,6 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'width'          => 'required',
-            'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]);
 
@@ -104,8 +102,6 @@ class HotspotController extends Controller {
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
-            'width'          => 'required',
-            'height'         => 'required',
             'scene_id'       => 'required|integer'
         ]); 
  
