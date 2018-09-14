@@ -38,7 +38,7 @@ class HotspotController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
+    public function show($id, Request $request){
         $user = $request->auth;
         $listData = Hotspot::where('user_id', $user->id)->findOrFail($id);
 
