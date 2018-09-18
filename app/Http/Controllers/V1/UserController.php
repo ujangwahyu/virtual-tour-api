@@ -35,5 +35,17 @@ class UserController extends Controller {
 
         return $this->response($jsonData, 'ok');
     }
+
+    public function index(Request $request){
+        $user = $request->auth;
+        $listData = User::get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
  
 }

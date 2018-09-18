@@ -100,16 +100,7 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
     $router->group(['prefix' => 'register'], function ($app) {
         $app->post('/', 'AuthController@register');
     });
-
-    $router->group(['prefix' => 'user'], 
-    function() use ($router) {
-        $router->get('/', function() {
-            $users = \App\Models\User::all();
-            return response()->json($users);
-        });
-    }
-);
-
+ 
 });
 
 $router->group(['prefix' => 'region'], function ($app) {
