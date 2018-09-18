@@ -63,6 +63,7 @@ class TourController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *

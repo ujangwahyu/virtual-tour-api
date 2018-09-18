@@ -56,6 +56,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'TourController@store');
         $app->put('/{id}', 'TourController@update');
         $app->delete('/{id}', 'TourController@destroy');
+        $app->get('/{id}/scene', 'SceneController@byTour');
     });
 
     $router->group(['prefix' => 'scene'], function ($app) {

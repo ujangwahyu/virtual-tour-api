@@ -51,6 +51,18 @@ class SceneController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function byTour($id, Request $request){ 
+    
+        $listData = Scene::with('hotspot','tour')->where('tour_id', $id)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
