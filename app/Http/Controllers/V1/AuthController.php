@@ -132,6 +132,5 @@ class AuthController extends Controller {
             $res['message'] = $ex->getMessage();
             return response($res, 500);
         }
-    }
-
+    }  
 }
