@@ -64,7 +64,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'SceneController@store');
         $app->put('/{id}', 'SceneController@update');
         $app->delete('/{id}', 'SceneController@destroy');
-        $app->get('/{id}/scene', 'HotspotController@byScene');
+        $app->get('/{id}/hotspot', 'HotspotController@byScene');
     });
 
     $router->group(['prefix' => 'hotspot'], function ($app) {
