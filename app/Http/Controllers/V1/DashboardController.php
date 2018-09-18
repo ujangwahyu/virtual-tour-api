@@ -22,13 +22,23 @@ class DashboardController extends Controller {
     */
     public function index(Request $request){
 
+        $listUser = User::where('role', 1)->get();
         $totalRegion = Region::count();
-        $totalTour = Tour::count(); 
+        $totalTour = Tour::count();
+        $totalScene = Scene::count(); 
+        $totalHotspot = Scene::count();  
         $jsonData = [ 
+                'user' => $listUser,
                 'region' => $totalRegion.' Region',
                 'tour' => $totalTour.' Tour', 
+                'scene' => $totalScene.' Scene', 
+                'Hotspot' => $totalHotspot.' Hotspot', 
                 'message' => 'Data berhasil diambil.'
         ];
+        // $jsonData = [
+        //     'data' => $listData,
+        //     'message' => 'Data berhasil diambil.'
+        // ];
 
         return $this->response($jsonData, 'ok');
     }
