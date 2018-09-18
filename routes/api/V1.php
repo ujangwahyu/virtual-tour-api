@@ -72,6 +72,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
         $app->post('/', 'HotspotController@store');
         $app->put('/{id}', 'HotspotController@update');
         $app->delete('/{id}', 'HotspotController@destroy');
+        $app->get('/{id}/scene', 'HotspotController@byScene');
     });
 
     $router->group(['prefix' => 'photo360'], function ($app) {
@@ -130,7 +131,7 @@ $router->group(['prefix' => 'scene'], function ($app) {
 });
 
 $router->group(['prefix' => 'hotspot'], function ($app) {
-    $app->get('/', 'HotspotController@index');
+    $app->get('/', 'HotspotController@index'); 
     $app->get('/{id}', 'HotspotController@show');
     $app->post('/', 'HotspotController@store'); 
 });

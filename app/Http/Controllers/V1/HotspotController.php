@@ -50,6 +50,18 @@ class HotspotController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
+    public function byScene($id, Request $request){ 
+    
+        $listData = Hotspot::with('hotspot','user')->where('scene_id', $id)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
