@@ -93,7 +93,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
 
 $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function() use ($router) {
     $router->get('/user', function() {
-        $users = \App\Models\User::where('role', 1)->all();
+        $users = \App\Models\User::where('role', 1)->get();
         return response()->json($users);
     });
 
