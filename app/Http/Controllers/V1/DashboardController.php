@@ -13,6 +13,8 @@ use App\Http\Controllers\V1\Controller;
 use App\Models\Region; 
 use App\Models\Tour; 
 use App\Models\User;
+use App\Models\Scene;
+use App\Models\Hotspot;
 
 class DashboardController extends Controller {
 
@@ -23,24 +25,32 @@ class DashboardController extends Controller {
     */
     public function index(Request $request){
 
-        $listUser = User::where('role', 1)->get();
-        $totalRegion = Region::count();
-        $totalTour = Tour::count();
-        $totalScene = Scene::count(); 
-        $totalHotspot = Scene::count();  
-        $jsonData = [ 
-                'user' => $listUser,
-                'region' => $totalRegion.' Region',
-                'tour' => $totalTour.' Tour', 
-                'scene' => $totalScene.' Scene', 
-                'Hotspot' => $totalHotspot.' Hotspot', 
-                'message' => 'Data berhasil diambil.'
-        ];
-        // $jsonData = [
-        //     'data' => $listData,
-        //     'message' => 'Data berhasil diambil.'
-        // ];
+        $region = Region::with(['user'])->get();
 
+        $listRegion = [];
+
+        foreach($region as $reg){
+            $scene = 0;
+            $tour = 0;
+            $hotspot = 0;
+            foreach($reg->user as $user){
+                $scene += Scene::where('user_id', $user->id)->count();
+                $tour += Tour::where('user_id', $user->id)->count();
+                $hotspot += Hotspot::where('user_id', $user->id)->count();
+            }
+
+            $listRegion[] = [
+                'region' => $reg->name,
+                'tour' => $tour,
+                'scene' => $scene,
+                'hotspot' => $hotspot,
+            ];
+        }
+
+        $jsonData = [ 
+            'data' => $listRegion,
+            'message' => 'Data berhasil diambil.'
+        ]; 
         return $this->response($jsonData, 'ok');
     }
 

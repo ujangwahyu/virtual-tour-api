@@ -39,7 +39,7 @@ class Region extends Model{
     
     public function user()
     {
-        return $this->hasOne('App\Models\User');
+        return $this->hasMany('App\Models\User');
     }
 
     public function tour()

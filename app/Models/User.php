@@ -71,6 +71,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function scene()
     {
-        return $this->hasOne('App\Models\Scene');
+        return $this->hasMany('App\Models\Scene');
     }
 }
