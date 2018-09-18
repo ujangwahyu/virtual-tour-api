@@ -23,10 +23,10 @@ class DashboardController extends Controller {
     public function index(Request $request){
 
         $totalRegion = Region::count();
-        $totalRegion = Tour::count(); 
+        $totalTour = Tour::count(); 
         $jsonData = [ 
                 'region' => $totalRegion.' Region',
-                'tour' => $totalRegion.' Tour', 
+                'tour' => $totalTour.' Tour', 
                 'message' => 'Data berhasil diambil.'
         ];
 
