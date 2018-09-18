@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\V1\Controller;
 use App\Models\Region; 
 use App\Models\Tour; 
+use App\Models\User;
 
 class DashboardController extends Controller {
 
