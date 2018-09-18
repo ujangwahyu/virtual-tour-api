@@ -102,7 +102,7 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
     });
 
     $router->group(['prefix' => 'dashboard'], function ($app) {
-        $app->post('/', 'DashboardController@index');
+        $app->get('/', 'DashboardController@index');
     });
 
 });
