@@ -55,7 +55,8 @@ class UserController extends Controller {
             'password'                        => 'required',
             'name'                            => 'required',
             'photo_url'                       => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'role'                            => 'required'
+            'role'                            => 'required',
+            'region_id'                       => 'required'
         ]);
  
         $photoUrl = $request->file('photo_url');
@@ -74,6 +75,7 @@ class UserController extends Controller {
         $listData->password = $request->password; 
         $listData->photo_url = $pUrl->getResult()['url'];  
         $listData->role = $request->role; 
+        $listData->region_id = $request->region_id; 
         $listData->save();
 
         $jsonData = [
