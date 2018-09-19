@@ -102,7 +102,7 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
 
     $router->group(['prefix' => 'user'], function ($app) {
         $app->post('/', 'UserController@register');
-        $app->put('/', 'UserController@update');
+        $app->put('/{id}', 'UserController@update');
         $app->delete('/{id}', 'UserController@destroy');
     });
 
