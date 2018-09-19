@@ -102,6 +102,8 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
 
     $router->group(['prefix' => 'user'], function ($app) {
         $app->post('/', 'UserController@register');
+        $app->post('/', 'UserController@update');
+        $app->post('/', 'UserController@destroy');
     });
 
     $router->group(['prefix' => 'region'], function ($app) {

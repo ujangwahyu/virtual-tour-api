@@ -84,4 +84,68 @@ class UserController extends Controller {
         ];
         return $this->response($jsonData, 'created');
     }
+
+    public function update($id, Request $request){ 
+        $this->validate($request, [
+            'id'                              => 'required',
+            'email'                           => 'required',
+            'password'                        => 'required',
+            'name'                            => 'required',
+            'role'                            => 'required',
+            'region_id'                       => 'required'
+        ]);
+
+        // upload icon
+        if(!empty($request->file('photo_url'))){
+            $image = $request->file('photo_url');
+
+            $d = Cloudder::upload($image->getPathName(), null, array(
+                "folder" => "Virtualtour/Covertour",
+                "use_filename" => TRUE, 
+                "unique_filename" => FALSE
+            ));
+
+            $pUrl = $d->getResult()['url'];
+        }
+ 
+
+        $listData = User::findOrFail($id);
+        $listData->id = $request->id;
+        $listData->email = $request->email;
+        $listData->password = $request->password; 
+        $listData->name = $request->name; 
+
+        if(!empty($request->file('photo_url'))){
+            $listData->photo_url = $cUrl;
+        }   
+        $listData->role = $request->role; 
+        $listData->region_id = $request->region_id; 
+        $listData->save();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diupdate.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
+    /**
+     * Delete the specified resource.
+     *
+     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id, Request $request){
+        $data = User::findOrFail($id);
+        $data->delete();
+
+        $jsonData = [
+            'data' => $data,
+            'message' => 'Data berhasil dihapus.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
 }
