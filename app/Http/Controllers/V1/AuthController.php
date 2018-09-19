@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Firebase\JWT\ExpiredException;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\V1\Controller; 
-
+use JD\Cloudder\Facades\Cloudder;
 use App\Models\User;
 
 class AuthController extends Controller {
@@ -104,18 +104,25 @@ class AuthController extends Controller {
             $id = $request->input('nik');
             $email = $request->input('email');
             $password = $request->input('password');
-            $name = $request->input('name'); 
-            $photo_url = $request->input('photo_url');  
+            $name = $request->input('name');  
+            $photo_url = $request->file('photo_url'); 
             $role = $request->input('role'); 
             $token = $request->input('token'); 
             $region_id = $request->input('region_id'); 
+
+            $pUrl = Cloudder::upload($photo_url->getPathName(), null, array(
+                "folder" => "Virtualtour/Covertour",
+                "use_filename" => TRUE, 
+                "unique_filename" => FALSE
+            ));
 
             $jsonData = new User;
             $jsonData->id = $id;
             $jsonData->email = $email;
             $jsonData->password = app('hash')->make($password);  
             $jsonData->name = $name;
-            $jsonData->photo_url = $photo_url;  
+            $jsonData->photo_url = $pUrl->getResult()['url'];  
+            $listData->cover_url = 
             $jsonData->role = $role; 
             $jsonData->token = sha1($name);
             $jsonData->region_id = $region_id; 
@@ -132,6 +139,5 @@ class AuthController extends Controller {
             $res['message'] = $ex->getMessage();
             return response($res, 500);
         }
-    }
-
+    } 
 }
