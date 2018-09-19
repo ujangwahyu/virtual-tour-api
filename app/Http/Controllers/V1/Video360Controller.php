@@ -138,7 +138,6 @@ class Video360Controller extends Controller {
         $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required',
-            'url'                               => 'required', 
             'description'                       => 'required',
             'scrolling_enabled'                 => 'required|integer',
             'min_distance_to_enable_scrolling'  => 'required',
