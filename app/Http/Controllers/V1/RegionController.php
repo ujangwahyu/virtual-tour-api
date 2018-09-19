@@ -126,9 +126,7 @@ class RegionController extends Controller {
      */
     public function update($id, Request $request){ 
         $this->validate($request, [
-            'name'              => 'required',
-            'cover_url'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'icon'              => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'name'              => 'required' 
         ]);
 
         // upload icon
