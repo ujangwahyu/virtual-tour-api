@@ -84,7 +84,4 @@ class UserController extends Controller {
         ];
         return $this->response($jsonData, 'created');
     }
-
-
- 
 }
