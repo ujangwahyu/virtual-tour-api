@@ -23,7 +23,7 @@ class Photo360Controller extends Controller {
     */
     public function index(Request $request){
         $user = $request->auth;
-        $listData = Photo360::with('user')->where('user_id', $user->id)->get();
+        $listData = Photo360::with('users')->where('user_id', $user->id)->get();
 
         $jsonData = [
             'data' => $listData,
