@@ -48,7 +48,7 @@ class UserController extends Controller {
         return $this->response($jsonData, 'ok');
     }
 
-    public function store(Request $request){
+    public function register(Request $request){
         $this->validate($request, [
             'id'                              => 'required',
             'email'                           => 'required',
@@ -70,19 +70,10 @@ class UserController extends Controller {
         $listData = new User;
         $listData->id = $request->id;
         $listData->name = $request->name;
-        $listData->password = $request->password;
-        $listData->scrolling_enabled = $request->scrolling_enabled;
-        $listData->url = $pUrl->getResult()['url']; 
-        $listData->description = $request->description;
-        $listData->scrolling_enabled = $request->scrolling_enabled;
-        $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
-        $listData->accelerometer_enabled = $request->accelerometer_enabled;
-        $listData->interval = $request->interval;
-        $listData->sensitivity = $request->sensitivity;
-        $listData->left_right_enabled = $request->left_right_enabled;
-        $listData->up_down_enabled = $request->up_down_enabled; 
-        $listData->region_id = $user->region_id;
-        $listData->user_id = $user->id;
+        $listData->email = $request->email;
+        $listData->password = $request->password; 
+        $listData->photo_url = $pUrl->getResult()['url'];  
+        $listData->role = $request->role; 
         $listData->save();
 
         $jsonData = [
