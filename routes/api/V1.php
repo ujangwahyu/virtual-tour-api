@@ -100,7 +100,7 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
         return response()->json($users);
     });
 
-    $router->group(['prefix' => 'register'], function ($app) {
+    $router->group(['prefix' => 'user'], function ($app) {
         $app->post('/', 'AuthController@register');
     });
 
