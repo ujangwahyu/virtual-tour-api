@@ -137,7 +137,7 @@ class UserController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request){
+    public function destroy($id){
         $data = User::findOrFail($id);
         $data->delete();
 
