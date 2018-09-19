@@ -39,7 +39,7 @@ class SceneController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
+    public function show(Request $request, $id){
         $user = $request->auth;
         $listData = Scene::with('hotspot')->where('user_id', $user->id)->findOrFail($id);
 
@@ -73,7 +73,8 @@ class SceneController extends Controller {
         $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required',
-            'url'                               => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'url'                               => 'required',
+            'cover_url'                         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'scrolling_enabled'                 => 'required|integer',
             'min_distance_to_enable_scrolling'  => 'required',
             'accelerometer_enabled'             => 'required|integer',
