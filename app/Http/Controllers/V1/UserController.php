@@ -111,6 +111,14 @@ class UserController extends Controller {
             'region_id'                       => 'required'
         ]);
 
+        $id = $request->input('id');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $name = $request->input('name'); 
+        $photo_url = $request->file('photo_url');
+        $role = $request->input('role');  
+        $region_id = $request->input('region_id');
+
         // upload icon
         if(!empty($request->file('photo_url'))){
             $image = $request->file('photo_url');
