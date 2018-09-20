@@ -69,16 +69,22 @@ class UserController extends Controller {
             'role'                            => 'required',
             'region_id'                       => 'required'
         ]);
- 
-        $photoUrl = $request->file('photo_url');
 
-        $pUrl = Cloudder::upload($photoUrl->getPathName(), null, array(
+        $id = $request->input('id');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $name = $request->input('name'); 
+        $photo_url = $request->file('photo_url');
+        $role = $request->input('role');  
+        $region_id = $request->input('region_id'); 
+ 
+
+        $pUrl = Cloudder::upload($photo_url->getPathName(), null, array(
             "folder" => "Virtualtour/Photo360",
             "use_filename" => TRUE, 
             "unique_filename" => FALSE
         ));
  
-
         $listData = new User;
         $listData->id = $request->id;
         $listData->name = $request->name;
