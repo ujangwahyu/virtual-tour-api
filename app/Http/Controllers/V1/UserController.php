@@ -119,7 +119,6 @@ class UserController extends Controller {
             $pUrl = $d->getResult()['url'];
         }
  
-
         $listData = User::findOrFail($id);
         $listData->id = $request->id;
         $listData->email = $request->email;
