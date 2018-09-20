@@ -65,7 +65,7 @@ class RegionController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showClient($id){
+    public function showClient($id, Request $request){
         $listData = Region::findOrFail($id);
 
         $jsonData = [
