@@ -111,6 +111,7 @@ $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function(
     $router->group(['prefix' => 'region'], function ($app) {
         $app->get('/', 'RegionController@index');
         $app->post('/', 'RegionController@store'); 
+        $app->get('/{id}', 'RegionController@show'); 
         $app->put('/{id}', 'RegionController@update');
         $app->delete('/{id}', 'RegionController@destroy');
     });
