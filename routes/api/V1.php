@@ -95,13 +95,15 @@ $router->group(['prefix' => 'admin', 'middleware' => 'jwt.auth'], function() use
 });
 
 $router->group(['prefix' => 'superadmin', 'middleware' => 'jwt.auth'], function() use ($router) {
-    $router->get('/user', function() {
-        $users = \App\Models\User::where('role', 1)->get();
-        return response()->json($users);
-    });
+    // $router->get('/user', function() {
+    //     $users = \App\Models\User::where('role', 1)->get();
+    //     return response()->json($users);
+    // });
 
     $router->group(['prefix' => 'user'], function ($app) {
         $app->post('/', 'UserController@register');
+        $app->get('/', 'UserController@index'); 
+        $app->get('/{id}', 'UserController@show'); 
         $app->put('/{id}', 'UserController@update');
         $app->delete('/{id}', 'UserController@destroy');
     });

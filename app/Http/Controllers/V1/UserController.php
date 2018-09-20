@@ -38,7 +38,18 @@ class UserController extends Controller {
 
     public function index(Request $request){
         $user = $request->auth;
-        $listData = User::get();
+        $listData = User::where('role', 1)->get();
+
+        $jsonData = [
+            'data' => $listData,
+            'message' => 'Data berhasil diambil.'
+        ];
+
+        return $this->response($jsonData, 'ok');
+    }
+
+    public function show($id, Request $request){ 
+        $listData = User::findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
