@@ -100,7 +100,6 @@ class UserController extends Controller {
         $this->validate($request, [
             'id'                              => 'required',
             'email'                           => 'required',
-            'password'                        => 'required',
             'name'                            => 'required',
             'role'                            => 'required',
             'region_id'                       => 'required'
@@ -126,7 +125,7 @@ class UserController extends Controller {
         $listData->name = $request->name; 
 
         if(!empty($request->file('photo_url'))){
-            $listData->photo_url = $cUrl;
+            $listData->photo_url = $pUrl;
         }   
         $listData->role = $request->role; 
         $listData->region_id = $request->region_id; 
