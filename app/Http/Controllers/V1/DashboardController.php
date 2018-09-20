@@ -15,7 +15,8 @@ use App\Models\Tour;
 use App\Models\User;
 use App\Models\Scene;
 use App\Models\Hotspot;
-
+use App\Models\Photo360;
+use App\Models\Video360;
 class DashboardController extends Controller {
 
     /**
@@ -33,10 +34,14 @@ class DashboardController extends Controller {
             $scene = 0;
             $tour = 0;
             $hotspot = 0;
+            $photo360 = 0;
+            $video360 = 0;
             foreach($reg->user as $user){
                 $scene += Scene::where('user_id', $user->id)->count();
                 $tour += Tour::where('user_id', $user->id)->count();
                 $hotspot += Hotspot::where('user_id', $user->id)->count();
+                $photo360 += Photo360::where('user_id', $user->id)->count();
+                $video360 += Video360::where('user_id', $user->id)->count();
             }
 
             $listRegion[] = [
@@ -44,6 +49,8 @@ class DashboardController extends Controller {
                 'tour' => $tour,
                 'scene' => $scene,
                 'hotspot' => $hotspot,
+                'photo360' => $photo360,
+                'video360' => $video360
             ];
         }
 
