@@ -113,7 +113,7 @@ class UserController extends Controller {
 
         $id = $request->input('id');
         $email = $request->input('email');
-        $password = $request->input('password');
+        //$password = $request->input('password');
         $name = $request->input('name'); 
         $photo_url = $request->file('photo_url');
         $role = $request->input('role');  
