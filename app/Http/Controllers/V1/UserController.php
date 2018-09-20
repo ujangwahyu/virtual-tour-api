@@ -83,7 +83,7 @@ class UserController extends Controller {
         $listData->id = $request->id;
         $listData->name = $request->name;
         $listData->email = $request->email;
-        $listData->password = $request->password; 
+        $listData->password = app('hash')->make($password); 
         $listData->photo_url = $pUrl->getResult()['url'];  
         $listData->role = $request->role; 
         $listData->region_id = $request->region_id; 
@@ -121,7 +121,7 @@ class UserController extends Controller {
         $listData = User::findOrFail($id);
         $listData->id = $request->id;
         $listData->email = $request->email;
-        $listData->password = $request->password; 
+        $listData->password = app('hash')->make($password); 
         $listData->name = $request->name; 
 
         if(!empty($request->file('photo_url'))){
