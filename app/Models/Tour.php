@@ -37,6 +37,7 @@ class Tour extends Model{
     {
         return $this->belongsTo('App\Models\User');
     }
+    
 
     public function region()
     {
