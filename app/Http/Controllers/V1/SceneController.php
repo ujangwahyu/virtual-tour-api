@@ -74,7 +74,6 @@ class SceneController extends Controller {
         $this->validate($request, [
             'name'                              => 'required',
             'url'                               => 'required',
-            'cover_url'                         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'scrolling_enabled'                 => 'required|integer',
             'min_distance_to_enable_scrolling'  => 'required',
             'accelerometer_enabled'             => 'required|integer',
