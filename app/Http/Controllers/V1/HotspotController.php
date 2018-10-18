@@ -71,12 +71,6 @@ class HotspotController extends Controller {
     public function store(Request $request){ 
         $user = $request->auth;
         $this->validate($request, [ 
-            'pos_x'          => 'required',
-            'pos_y'          => 'required',
-            'pos_z'          => 'required',
-            'pos_roll'       => 'required',
-            'pos_pitch'      => 'required',
-            'pos_yaw'        => 'required',
             'destination'    => 'required|integer',
             'scene_id'       => 'required|integer' 
         ]);
