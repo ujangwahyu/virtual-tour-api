@@ -87,6 +87,8 @@ class Photo360Controller extends Controller {
         $user = $request->auth;
         $this->validate($request, [
             'name'                              => 'required',
+            'url'                               => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cover_url'                         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'                       => 'required',
             'scrolling_enabled'                 => 'required|integer',
             'min_distance_to_enable_scrolling'  => 'required',
