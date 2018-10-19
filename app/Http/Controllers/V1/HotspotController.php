@@ -73,7 +73,7 @@ class HotspotController extends Controller {
         $this->validate($request, [ 
             'pos_x'          => 'required',
             'pos_y'          => 'required',
-            'pos_z'          => 'required',
+            'pos_z'          => 'required', 
             'pos_roll'       => 'required',
             'pos_pitch'      => 'required',
             'pos_yaw'        => 'required',
