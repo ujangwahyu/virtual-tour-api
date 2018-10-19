@@ -76,7 +76,6 @@ class Photo360Controller extends Controller {
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
