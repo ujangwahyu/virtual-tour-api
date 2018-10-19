@@ -108,16 +108,20 @@ class Photo360Controller extends Controller {
             "unique_filename" => FALSE
         ));
 
+        $res_url = $url->getResult()['url'];
+
         $c_url = Cloudder::upload($cover_url->getPathName(), null, array(
             "folder" => "Virtualtour/Covertour",
             "use_filename" => TRUE, 
             "unique_filename" => FALSE
         ));
 
+        $res_curl = $c_url->getResult()['url'];
+
         $listData = new Photo360;
         $listData->name = $request->name;
-        $listData->url = $url->getResult()['url'];
-        $listData->cover_url = $c_url->getResult()['url'];
+        $listData->url = $res_url;
+        $listData->cover_url = $res_curl;
         $listData->description = $request->description;
         $listData->scrolling_enabled = $request->scrolling_enabled;
         $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
