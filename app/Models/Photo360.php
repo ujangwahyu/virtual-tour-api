@@ -31,7 +31,7 @@ class Photo360 extends Model{
      * @var array
      */
     protected $fillable = [
-        'name', 'url', 'cover_url','description','scrolling_enabled', 'min_distance_to_enable_scrolling', 'accelerometer_enabled','interval', 'sensitivity', 'left_right_enabled','up_down_enabled'
+        'name', 'p_url', 'cover_url','description','scrolling_enabled', 'min_distance_to_enable_scrolling', 'accelerometer_enabled','interval', 'sensitivity', 'left_right_enabled','up_down_enabled'
     ];
 
     public function user()
