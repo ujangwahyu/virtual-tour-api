@@ -75,6 +75,10 @@ $app->routeMiddleware([
     'cors' => \Barryvdh\Cors\HandleCors::class,
 ]);
 
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class
+ ]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
