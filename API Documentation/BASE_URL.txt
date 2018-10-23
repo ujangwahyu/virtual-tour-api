@@ -1,0 +1,9 @@
+BASE_URL = https://virtualtour.kampuskoding.net/public
+
+Pengelola Daerah 
+username : admin@kudus.go.id
+pass	 : kudusjuara
+
+Super Admin
+username : superadmin@gmail.com
+pass 	 : 1234

@@ -1,0 +1,2253 @@
+{
+	"info": {
+		"_postman_id": "34724e29-7289-4c53-810f-7addcf1b8ba6",
+		"name": "RestAPI Virtual Tour",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Region/Daerah",
+			"item": [
+				{
+					"name": "admin/region",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/region",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/region/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"region",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bandar Lampung",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": null
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/region",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Cianjur",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/region/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"region",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/region/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"region",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tour/Wisata",
+			"item": [
+				{
+					"name": "admin/tour",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jampang Water Park",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "description",
+									"value": "Candi Prambanan atau Candi Roro Jonggrang adalah kompleks candi Hindu terbesar di Indonesia yang dibangun pada abad ke-9 masehi.",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Kalasan, Jogjakarta",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "43438233021233",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/tour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/tour/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/tour/{id}/scene",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour/1/scene",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour",
+								"1",
+								"scene"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/tour/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Candi Prambanan",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "description",
+									"value": "ini deskripsi",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Kalasan, Jogjakarta",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/tour/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/tour/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"tour",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scene",
+			"item": [
+				{
+					"name": "admin/scene",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Hitutiiiiiii",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tour_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/scene",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/scene/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/scene/{id}/hotspot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene/1/hotspot",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene",
+								"1",
+								"hotspot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/scene/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Candi Borobudur Bagian Belakang",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tour_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/scene/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/scene/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"scene",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotspot",
+			"item": [
+				{
+					"name": "admin/hotspot",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pos_x",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_y",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_z",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "pos_roll",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_pitch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_yaw",
+									"value": "-45",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "width",
+									"value": "0.5",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "0.5",
+									"type": "text"
+								},
+								{
+									"key": "scene_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/hotspot",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"hotspot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/hotspot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/hotspot",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"hotspot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/hotspot/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/hotspot/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"hotspot",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/hotspot/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pos_x",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_y",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_z",
+									"value": "-8",
+									"type": "text"
+								},
+								{
+									"key": "pos_roll",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_pitch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "pos_yaw",
+									"value": "-45",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "width",
+									"value": "0,6",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "0,6",
+									"type": "text"
+								},
+								{
+									"key": "scene_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/hotspot/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"hotspot",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/hotspot/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/hotspot/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"hotspot",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo360",
+			"item": [
+				{
+					"name": "admin/photo360",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "hitut5",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "description",
+									"value": "Candi Borobudur atau Candi Roro Jonggrang adalah kompleks candi Hindu terbesar di Indonesia yang dibangun pada abad ke-9 masehi",
+									"type": "text"
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/photo360",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"photo360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/photo360",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/photo360",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"photo360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/photo360/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/photo360/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"photo360",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/photo360/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Candi Prambanan",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "description",
+									"value": "ini deksripsi jogja baysdsds sdsds ujang wahnasdsd sdshdsdsj sdjsjdsd jdfjjdfjdf dkdfkldfk dfdjfdjfudjfdfjdfdfj djfjdfdf",
+									"type": "text"
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tour_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/photo360/24",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"photo360",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/photo360/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/photo360/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"photo360",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video360",
+			"item": [
+				{
+					"name": "admin/video360",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/video360",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"video360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/video360/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/video360/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"video360",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/video360",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jogja Bay",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://video.360cities.net/davilla/01588188_sa27-1920x960.mp4",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "description",
+									"value": "Candi Borobudur atau Candi Roro Jonggrang adalah kompleks candi Hindu terbesar di Indonesia yang dibangun pada abad ke-9 masehi",
+									"type": "text"
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/video360",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"video360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/video360/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Candi Roko",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://video.360cities.net/davilla/01588188_sa27-1920x960.mp4",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "description",
+									"value": "Candi Borobudur atau Candi Roro Jonggrang adalah kompleks candi Hindu terbesar di Indonesia yang dibangun pada abad ke-9 masehi",
+									"type": "text"
+								},
+								{
+									"key": "scrolling_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "min_distance_to_enable_scrolling",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "accelerometer_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interval",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sensitivity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "left_right_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "up_down_enabled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/video360/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"video360",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/video360/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/admin/video360/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"video360",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Super Admin",
+			"item": [
+				{
+					"name": "superadmin/user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "6544985743345435",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ciparay@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Admin Ciparay",
+									"type": "text"
+								},
+								{
+									"key": "photo_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "role",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/user/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "7655985743345435",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tasiklamaya@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Admin Tasik Bro",
+									"type": "text"
+								},
+								{
+									"key": "photo_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "role",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user/7655985743345435",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user",
+								"7655985743345435"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user/12345555555",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user",
+								"12345555555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/dashboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/dashboard",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/region",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/region/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"region",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Banjar",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/region",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Garutot",
+									"type": "text"
+								},
+								{
+									"key": "cover_url",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": null
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/region/9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"region",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin/region/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/region/9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"region",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/user/0123985743345435",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user/0123985743345435",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user",
+								"0123985743345435"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "superadmin/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/superadmin/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"superadmin",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mobile Client",
+			"item": [
+				{
+					"name": "region",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "region/{id_region}/tour",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region/18/tour",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region",
+								"18",
+								"tour"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "region/{id_region}/photo360",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region/1/photo360",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region",
+								"1",
+								"photo360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "region/{id_region}/video360",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region/1/video360",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region",
+								"1",
+								"video360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "region/{id_region}/newphoto360",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region/1/newphoto360",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region",
+								"1",
+								"newphoto360"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "region/{id_region}/newvideo360",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://virtualtour360.herokuapp.com/api/v1/region/1/newvideo360",
+							"protocol": "https",
+							"host": [
+								"virtualtour360",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"region",
+								"1",
+								"newvideo360"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth/email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"email\" \t: \"admin@kudus.go.id\",\n\t\"password\"\t: \"kudusjuara\" \n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/auth/email",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nik\" \t: \"5122985743345435\",\n\t\"email\" \t: \"lampung@gmail.com\",\n\t\"password\"\t: \"1234\",\n\t\"name\"\t: \"Admin Bandar Lampung\",\n\t\"photo_url\"\t: \"http://www.ektizo.com/ccc/images/icon/avatar.png\",\n\t\"role\"\t: 1,\n\t\"region_id\":8\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/auth/register",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://virtualtour360.herokuapp.com/api/v1/me",
+					"protocol": "https",
+					"host": [
+						"virtualtour360",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/user",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
