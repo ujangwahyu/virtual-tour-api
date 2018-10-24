@@ -106,8 +106,8 @@ class RegionController extends Controller {
 
         $listData = new Region;
         $listData->name = $request->name;
-        $listData->cover_url = $cUrl->getResult()['url'];
-        $listData->icon = $iUrl->getResult()['url'];   
+        $listData->cover_url = $cUrl->getResult()['secure_url'];
+        $listData->icon = $iUrl->getResult()['secure_url'];   
         $listData->save();
 
         $jsonData = [
@@ -139,7 +139,7 @@ class RegionController extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $cUrl = $d->getResult()['url'];
+            $cUrl = $d->getResult()['secure_url'];
         }
 
         if(!empty($request->file('icon'))){
@@ -151,7 +151,7 @@ class RegionController extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $iUrl = $d->getResult()['url'];
+            $iUrl = $d->getResult()['secure_url'];
         }
  
         $listData = Region::findOrFail($id);

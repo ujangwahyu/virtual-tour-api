@@ -90,7 +90,7 @@ class UserController extends Controller {
         $listData->name = $request->name;
         $listData->email = $request->email;
         $listData->password = app('hash')->make($password); 
-        $listData->photo_url = $pUrl->getResult()['url'];  
+        $listData->photo_url = $pUrl->getResult()['secure_url'];  
         $listData->role = $request->role; 
         $listData->region_id = $request->region_id; 
         $listData->save();

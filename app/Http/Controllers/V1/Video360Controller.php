@@ -158,7 +158,7 @@ class Video360Controller extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $cUrl = $d->getResult()['url'];
+            $cUrl = $d->getResult()['secure_url'];
         }
  
 

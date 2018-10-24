@@ -113,8 +113,8 @@ class TourController extends Controller {
     public function update($id, Request $request){
         $user = $request->auth;
         $this->validate($request, [
-            'name'      => 'required', 
-            'description'      => 'required|string' 
+            'name'              => 'required', 
+            'description'       => 'required|string' 
         ]);
 
         // upload icon
@@ -127,7 +127,7 @@ class TourController extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $cUrl = $d->getResult()['url'];
+            $cUrl = $d->getResult()['secure_url'];
         }
  
 
