@@ -94,7 +94,7 @@ class SceneController extends Controller {
 
         $listData = new Scene;
         $listData->name = $request->name;
-        $listData->url = $cUrl->getResult()['url'];
+        $listData->url = $cUrl->getResult()['secure_url'];
         $listData->scrolling_enabled = $request->scrolling_enabled;
         $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
         $listData->accelerometer_enabled = $request->accelerometer_enabled;
@@ -144,7 +144,7 @@ class SceneController extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $cUrl = $d->getResult()['url'];
+            $cUrl = $d->getResult()['secure_url'];
         }
  
 

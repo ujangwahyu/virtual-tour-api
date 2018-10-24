@@ -107,7 +107,7 @@ class Photo360Controller extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $res_url = $url->getResult()['url'];
+        $res_url = $url->getResult()['secure_url'];
 
         $c_url = Cloudder::upload($cover_url->getPathName(), null, array(
             "folder" => "Virtualtour/Covertour",
@@ -115,7 +115,7 @@ class Photo360Controller extends Controller {
             "unique_filename" => FALSE
         ));
 
-        $res_curl = $c_url->getResult()['url'];
+        $res_curl = $c_url->getResult()['secure_url'];
 
         $listData = new Photo360;
         $listData->name = $request->name;
@@ -162,8 +162,8 @@ class Photo360Controller extends Controller {
         ]);
 
         // upload Image
-        if(!empty($request->file('p_url'))){
-            $image = $request->file('p_url');
+        if(!empty($request->file('url'))){
+            $image = $request->file('url');
 
             $d = Cloudder::upload($image->getPathName(), null, array(
                 "folder" => "Virtualtour/Photo360",
@@ -171,7 +171,7 @@ class Photo360Controller extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $pUrl = $d->getResult()['url'];
+            $pUrl = $d->getResult()['secure_url'];
         }
 
         // upload icon
@@ -184,7 +184,7 @@ class Photo360Controller extends Controller {
                 "unique_filename" => FALSE
             ));
 
-            $cUrl = $d->getResult()['url'];
+            $cUrl = $d->getResult()['secure_url'];
         }
  
 
