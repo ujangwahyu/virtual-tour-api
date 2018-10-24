@@ -40,7 +40,7 @@ class HotspotController extends Controller {
      */
     public function show($id, Request $request){
         $user = $request->auth;
-        $listData = Hotspot::where('user_id', $user->id)->findOrFail($id);
+        $listData = Hotspot::with('scene')->where('user_id', $user->id)->findOrFail($id);
 
         $jsonData = [
             'data' => $listData,
