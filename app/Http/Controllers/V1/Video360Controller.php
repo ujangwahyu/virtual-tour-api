@@ -84,8 +84,7 @@ class Video360Controller extends Controller {
     public function store(Request $request){
         $user = $request->auth;
         $this->validate($request, [
-            'name'                              => 'required',
-            'url'                               => 'required',
+            'name'                              => 'required', 
             'description'                       => 'required',
             'scrolling_enabled'                 => 'required|integer',
             'min_distance_to_enable_scrolling'  => 'required',
@@ -97,17 +96,27 @@ class Video360Controller extends Controller {
         ]);
 
         $coverUrl = $request->file('cover_url'); 
-
-        $cUrl = Cloudder::upload($coverUrl->getPathName(), null, array(
+        $c_url = Cloudder::upload($coverUrl->getPathName(), null, array(
             "folder" => "Virtualtour/Covertour",
             "use_filename" => TRUE, 
             "unique_filename" => FALSE
         ));
+        $res_curl = $c_url->getResult()['secure_url'];
+
+        $url = $request->file('url'); 
+        $v_url = Cloudder::upload_large($url->getPathName(), null, array(
+            "folder" => "Virtualtour/Covertour", 
+            "use_filename" => TRUE, 
+            "unique_filename" => FALSE,
+            "resource_type" => "video"
+        ));
+        $res_vurl = $v_url->getResult()['secure_url'];
+    
 
         $listData = new Video360;
         $listData->name = $request->name;
-        $listData->url = $request->url;
-        $listData->cover_url = $cUrl->getResult()['url'];
+        $listData->url = $request->res_vurl;
+        $listData->cover_url = $res_curl;
         $listData->description = $request->description;
         $listData->scrolling_enabled = $request->scrolling_enabled;
         $listData->min_distance_to_enable_scrolling = $request->min_distance_to_enable_scrolling;
