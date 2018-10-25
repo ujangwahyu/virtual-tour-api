@@ -111,7 +111,6 @@ class Video360Controller extends Controller {
             "resource_type" => "video"
         ));
         $res_vurl = $v_url->getResult()['secure_url'];
-    
 
         $listData = new Video360;
         $listData->name = $request->name;
