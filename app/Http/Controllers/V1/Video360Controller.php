@@ -107,7 +107,8 @@ class Video360Controller extends Controller {
         $v_url = Cloudder::uploadVideo($url->getPathName(), null, array(
             "folder" => "Virtualtour/Covertour", 
             "use_filename" => TRUE, 
-            "unique_filename" => FALSE 
+            "unique_filename" => FALSE,
+            "resource_type" => "video"
         ));
         $res_vurl = $v_url->getResult()['secure_url'];
 
